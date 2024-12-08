@@ -2,11 +2,14 @@
 ## Conda[Recommend]
 ```shell
 conda env create -n tfold -f environment.yaml
-wget https://github.com/aqlaboratory/openfold/archive/refs/tags/v1.0.1.zip -O openfold-1.0.1.zip
-unzip openfold-1.0.1.zip
-cd openfold-1.0.1 
+conda activate tfold
+pip install git+https://github.com/aqlaboratory/openfold.git@"3bec3e9b2d1e8bdb83887899102eff7d42dc2ba9"
+#wget https://github.com/aqlaboratory/openfold/archive/refs/tags/v1.0.1.zip -O openfold-1.0.1.zip
+#unzip openfold-1.0.1.zip
+#cd openfold-1.0.1
+
 sed -i 's/deepspeed.utils.is_initialized()/deepspeed.comm.comm.is_initialized()/' openfold/model/primitives.py 
-pip install . 
+#pip install . 
 ```
 ## Pip
 ### install mmseqs from source
